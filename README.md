@@ -1,25 +1,51 @@
-# This repository provides all the files to reproduce all the tests presented in the blog post *["Horizontal Scaling for Self-Hosted Image Generation"](https://aquiles-ai.vercel.app/blog/Aquiles-Image-horizontal-scaling)*
+# Test Reproduction for Horizontal Scaling
 
-All files that are `deploy_*.py` are for deploying Aquiles-Image with Modal.
+This repository contains all the necessary files to reproduce the tests presented in the blog post *["Horizontal Scaling for Self-Hosted Image Generation"](https://aquiles-ai.vercel.app/blog/Aquiles-Image-horizontal-scaling)*.
 
-### How to deploy on Modal?
+Files following the `deploy_*.py` pattern are designed to deploy Aquiles-Image using Modal.
 
-To deploy on Modal, first go to the [Modal website](https://modal.com) and create an account.
+## How to Deploy on Modal
 
-Then set it up on your local machine with these commands:
+### Step 1: Create an Account
+
+First, visit the [Modal website](https://modal.com) and create an account.
+
+### Step 2: Set Up Modal Locally
+
+Configure Modal on your local machine by running the following commands:
 ```bash
-# Install Modal SDK
+# Install the Modal SDK
 uv pip install modal
 
-# Authenticate
+# Authenticate your account
 python3 -m modal setup
 ```
 
-Ideally, in the modal dashboard, configure the `huggingface-secret` with your huggingface token to download models and avoid restricted access issues.
+### Step 3: Configure Secrets
 
-Now, to deploy, just use this command:
+In the Modal dashboard, configure the `huggingface-secret` with your Hugging Face token. This allows you to download models and avoid restricted access issues.
 
+### Step 4: Deploy
+
+To deploy, simply run the following command:
 ```bash
-# Replace with the deployment file you'll use
+# Replace with the deployment file you want to use
 modal deploy deploy_*.py
+```
+
+## Running the Tests
+
+### Step 1: Create Environment File
+
+First, create a `.env` file in the root of the repository with the URL you obtained after deploying your chosen configuration on Modal:
+```env
+URL_MODAL="https://your-user--aquiles-image-server-serve.modal.run"
+```
+
+### Step 2: Execute Tests
+
+Run the test file you want to try:
+```bash
+# Replace with the test file you want to use
+python test_*.py
 ```
