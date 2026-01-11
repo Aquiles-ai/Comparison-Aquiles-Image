@@ -58,7 +58,8 @@ def serve():
         "--model",
         MODEL_NAME,
         "--set-steps", "35",
-        "--api-key", "dummy-api-key"
+        "--api-key", "dummy-api-key",
+        "--batch-timeout 1.0"
     ]
 
     print(f"Starting Aquiles-Image with the model:{MODEL_NAME}")
