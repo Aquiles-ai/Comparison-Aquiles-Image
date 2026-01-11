@@ -3,11 +3,12 @@ from openai import AsyncOpenAI
 import base64
 import time
 from pathlib import Path
-import os
 from typing import Literal
 
+URL_MODAL="https://your-user--aquiles-image-server-serve.modal.run"
+
 client = AsyncOpenAI(
-    base_url=os.getenv("URL_MODAL"), api_key="dummy-api-key"
+    base_url=URL_MODAL, api_key="dummy-api-key"
 )
 
 async def gen_image(prompt: str, image_id: int):

@@ -59,7 +59,8 @@ def serve():
         MODEL_NAME,
         "--set-steps", "35",
         "--api-key", "dummy-api-key",
-        "--dist-inference"
+        "--dist-inference",
+        "--max-concurrent-infer", "100"
     ]
 
     print(f"Starting Aquiles-Image with the model:{MODEL_NAME}")

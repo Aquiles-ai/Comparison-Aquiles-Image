@@ -35,11 +35,15 @@ modal deploy deploy_*.py
 
 ## Running the Tests
 
-### Step 1: Create Environment File
+### Step 1: Replace the URL in the tests
+Go to the test file you want to run and replace the URL with the one you got when you deployed it in a modal.
 
-First, create a `.env` file in the root of the repository with the URL you obtained after deploying your chosen configuration on Modal:
-```env
+```python
 URL_MODAL="https://your-user--aquiles-image-server-serve.modal.run"
+
+client = AsyncOpenAI(
+    base_url=URL_MODAL, api_key="dummy-api-key"
+)
 ```
 
 ### Step 2: Execute Tests
