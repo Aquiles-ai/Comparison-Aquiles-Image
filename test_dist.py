@@ -169,7 +169,7 @@ async def test_batch_inference(mode: Literal["16", "32"]):
     print("\n" + "=" * 80)
 
 async def main():
-    await test_batch_inference("16")
+    await test_batch_inference("16") # I'm sending 16 images to be generated simultaneously
 
 if __name__ == "__main__":
     asyncio.run(main())
